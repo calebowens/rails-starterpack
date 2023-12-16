@@ -6,11 +6,11 @@
   - [x] Phlex
 - Js
   - Rails powered Importmaps <- we can always move away from the rails side later and maintain the same functionality
-  - AplineJS over stimulus <- Most components can be implemented without
-  - @rails/request.js <- Handles CSRF for us
+  - [x] AplineJS over stimulus <- Most components can be implemented without
+  - [x] @rails/request.js <- Handles CSRF for us
   - [x] Turbo <- This was chosen over XHTML as it integrates with rails better. I'm not going to use this heavily or at
     all really.
-  - JS Routes <- https://github.com/railsware/js-routes
+  - [x] JS Routes <- https://github.com/railsware/js-routes
 - CSS
   - [x] dartcss-rails <- This lets us keep using the default asset pipeline with sass. I like sass. I also want to
         avoid using comment imports like the plauge

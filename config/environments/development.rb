@@ -75,4 +75,8 @@ Rails.application.configure do
   config.action_controller.raise_on_missing_callback_actions = true
 
   config.hosts << "starterpack.test"
+
+  # Automatically update js-routes file
+  # when routes.rb is changed
+  config.middleware.use(JsRoutes::Middleware)
 end
