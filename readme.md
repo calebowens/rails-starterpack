@@ -3,10 +3,10 @@
 ## Chosen stack
 
 - View
-  - Phlex
+  - [x] Phlex
 - Js
   - Rails powered Importmaps <- we can always move away from the rails side later and maintain the same functionality
-  - AplineJS over sinatra <- Most components can be implemented without
+  - AplineJS over stimulus <- Most components can be implemented without
   - @rails/request.js <- Handles CSRF for us
   - Turbo <- This was chosen over XHTML as it integrates with rails better. I'm not going to use this heavily or at
     all really.
@@ -30,7 +30,7 @@
   - Capybara
     - Selenium
 - Formatting
-  - Standard RB
+  - [x] Standard RB
 - Mail chatching
   - Mailhog
 - Jobs
@@ -39,5 +39,3 @@
 - Authentication
   - has_secure_password
   - User.authenticated_by(email: 'asdfasdf', password: 'asdfasdf')
-- [x] Standard RB
-  - Any standard is better than no standard
