@@ -8,7 +8,7 @@
   - Rails powered Importmaps <- we can always move away from the rails side later and maintain the same functionality
   - AplineJS over stimulus <- Most components can be implemented without
   - @rails/request.js <- Handles CSRF for us
-  - Turbo <- This was chosen over XHTML as it integrates with rails better. I'm not going to use this heavily or at
+  - [x] Turbo <- This was chosen over XHTML as it integrates with rails better. I'm not going to use this heavily or at
     all really.
   - JS Routes <- https://github.com/railsware/js-routes
 - CSS
