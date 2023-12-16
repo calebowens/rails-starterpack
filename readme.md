@@ -20,7 +20,7 @@
   - To use form_with over form_for or simple_form_for. <- I want to move away from the model centric view that
     simple_form focuses on.
 - Docker
-  - [ ] Set up with docker compose
+  - [x] Set up with docker compose
 - Hosting
   - Stick with Heroku
   - Do someting fancy with docker compose in production on a VPS
@@ -39,3 +39,5 @@
 - Authentication
   - has_secure_password
   - User.authenticated_by(email: 'asdfasdf', password: 'asdfasdf')
+- [x] Standard RB
+  - Any standard is better than no standard
