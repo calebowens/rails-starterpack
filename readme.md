@@ -36,6 +36,6 @@
 - Jobs
   - Good Job <- This means we don't need to have a redis database, and avoids problems with redis loosing all its data
       when restarting
-- Authentication
+- [x] Authentication
   - has_secure_password
   - User.authenticated_by(email: 'asdfasdf', password: 'asdfasdf')
