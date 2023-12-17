@@ -28,5 +28,6 @@ module RailsStarterpack
 
     config.cache_store = :solid_cache_store
     config.session_store :cache_store
+    config.active_job.queue_adapter = :good_job
   end
 end
