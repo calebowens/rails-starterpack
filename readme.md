@@ -39,3 +39,5 @@
 - [x] Authentication
   - has_secure_password
   - User.authenticated_by(email: 'asdfasdf', password: 'asdfasdf')
+- Caching
+  - [x] Solid Cache

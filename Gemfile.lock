@@ -256,6 +256,8 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    solid_cache (0.2.0)
+      rails (>= 7)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -324,6 +326,7 @@ DEPENDENCIES
   puma (>= 5.0)
   rails (~> 7.1.2)
   selenium-webdriver
+  solid_cache
   sprockets-rails
   standardrb
   stimulus-rails

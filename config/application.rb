@@ -10,7 +10,6 @@ module RailsStarterpack
   class Application < Rails::Application
     config.autoload_paths << "#{root}/app/views"
     config.autoload_paths << "#{root}/app/views/layouts"
-    config.autoload_paths << "#{root}/app/views/components"
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
 
@@ -26,5 +25,8 @@ module RailsStarterpack
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    config.cache_store = :solid_cache_store
+    config.session_store :cache_store
   end
 end
