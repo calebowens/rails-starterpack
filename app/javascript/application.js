@@ -4,7 +4,11 @@ import Alpine from "alpinejs"
 import * as Routes from "./routes.js"
 
 window.Routes = Routes
-
 window.Alpine = Alpine
 
 Alpine.start()
+
+document.addEventListener("turbo:frame-missing", (event) => {
+  event.preventDefault()
+  event.detail.visit(event.detail.response)
+})
