@@ -1,5 +1,30 @@
 # README
 
+## Goals
+
+- Be as standard as possible when using gems.
+- Avoid structuring the database around our features.
+
+Arguably, these are two very contradictory goals. With the way that I'm strucutring my controllers, its counter to how
+most if not all rails projects work.
+
+I think the way that I'm reconsiling this, is that, for eample I'm still using regular rails controllers and using phlex
+in a standard way. Such that, I'm not having ask rails to bend over backwards to find the files.
+
+For example, I'm still able to define rails routes without needing any fancy and breakble helper methods that make
+assumptions about the internals of rails routing.
+
+## Structure
+
+- app
+  - features <- Idea behind this is that we focus more on feature based groupings, rather than categorising code. Part
+    of the idea is that it will make each feature its own isolated application, with some shared common libraries
+    - pages
+    - authentication
+    - dashbaord
+  - common
+    - components <- contains shared phlex components
+
 ## Chosen stack
 
 - View

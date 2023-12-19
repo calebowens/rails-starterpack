@@ -61,6 +61,7 @@ group :development, :test do
   gem "debug", platforms: %i[mri windows]
 
   gem "standardrb"
+  gem "standard-rails"
 end
 
 group :development do
