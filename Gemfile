@@ -47,6 +47,7 @@ gem "bootsnap", require: false
 gem "dartsass-rails", "~> 0.5.0"
 
 gem "phlex-rails"
+gem "phlex-testing-capybara"
 
 gem "js-routes"
 

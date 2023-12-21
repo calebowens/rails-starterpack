@@ -66,3 +66,52 @@ assumptions about the internals of rails routing.
   - User.authenticated_by(email: 'asdfasdf', password: 'asdfasdf')
 - Caching
   - [x] Solid Cache
+
+## Style
+
+### Function calls
+
+When we have a function whose value is not used, IE:
+```rb
+cats.push "tabby"
+puts "foobar"
+```
+we call it without parans, unless passing a block using curly braces, IE:
+```rb
+submission.ensure(:password, message: "Password must be more than 8 character") { _1.size <= 8 }
+```
+
+When we use the return of the function, IE:
+```rb
+p make_number("123") + 123
+asdf = make_number("321")
+```
+we call it with parans
+
+
+## Thoughts and plans
+
+- Decorator
+  - This is something that "is still a hash" but has extra methods tacked on
+- Delegates hash methods that we want to provide
+- Entirly wrapped.
+
+- What might we want to do in the future
+  - IF we are having our params parsed in a custom solution
+    - What might the output format of that look like?
+
+  - IF we've got apipie style validations
+    - We'll want to put the errors in the object so they can be sent back into the form
+    - 
+
+---
+
+- [ ] Have a think about how to deal with query params.
+I'd like to deal with this pattern in a sensible way.
+
+Perhaps introducing some sort of apiPie validators (also similar to hanami) that we can define defaults in
+```rb
+email = user_params[:email] || ""
+password = user_params[:password] || ""
+confirm_password = user_params[:confirm_password] || ""
+```

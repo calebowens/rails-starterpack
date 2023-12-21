@@ -1,7 +1,6 @@
 class Authentication::Views::Login < ApplicationView
-  def initialize(email: nil, errors: {})
-    @email = email
-    @errors = errors
+  def initialize(submission: Submission.blank)
+    @submission = submission
   end
 
   def template
@@ -10,22 +9,14 @@ class Authentication::Views::Login < ApplicationView
     turbo_frame_tag(:register) do
       form_with(url: authentication_login_path) do |f|
         f.label :email, "Email"
-        f.text_field :email, value: @email
-        display_errors :email
+        f.text_field :email, value: @submission[:email]
+        render @submission.errors_for(:email)
 
         f.label :password, "Password"
         f.password_field :password
-        display_errors :password
+        render @submission.errors_for(:password)
 
         f.submit "Login"
-      end
-    end
-  end
-
-  def display_errors(key)
-    if @errors[key].present?
-      @errors[key].each do |error|
-        p { error }
       end
     end
   end

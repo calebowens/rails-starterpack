@@ -1,25 +1,21 @@
 class Authentication::Actions::LoginSubmitController < ApplicationController
   def handle
-    errors = {email: [], password: []}
+    submission = Submission.new(user_params.to_h)
 
-    email = user_params[:email] || ""
-    password = user_params[:password] || ""
-
-    errors[:email] << "Email cannot be left blank" if email.blank?
-    errors[:password] << "Password cannot be left blank" if password.blank?
+    submission.ensures_present :email
+    submission.ensures_present :password
 
     user = User.from_login_details(email:, password:)
 
-    errors[:email] << "The email and password provided did not match our records" if user.nil?
+    submission.ensure(:email, message: "The email and password provided did not match our records") { user.nil? }
 
-    if errors.values.all? { _1.empty? }
+    if submission.valid?
       user.add_to_session(session)
 
       redirect_to dashboard_home_path, status: :see_other
     else
       render Authentication::Views::Login.new(
-        errors:,
-        email: user_params[:email]
+        submission:
       )
     end
   end
