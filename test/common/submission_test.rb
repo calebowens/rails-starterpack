@@ -1,6 +1,8 @@
 require "application_rack_test"
 
 class SubmissionTest < ApplicationRackTest
+  include_phlex_helpers
+
   test ".blank returns a valid submission" do
     submission = Submission.blank
 
