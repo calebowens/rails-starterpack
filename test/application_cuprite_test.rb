@@ -9,5 +9,5 @@ class ApplicationCupriteTest < ActionDispatch::SystemTestCase
     include Phlex::Testing::Capybara::ViewHelper
   end
 
-  driven_by :cuprite, screen_size: [1920, 1080], options: { browser_options: { 'no-sandbox' => nil } }
+  driven_by :cuprite, screen_size: [1920, 1080], options: {browser_options: {"no-sandbox" => nil}}
 end

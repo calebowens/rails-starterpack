@@ -7,8 +7,3 @@ window.Routes = Routes
 window.Alpine = Alpine
 
 Alpine.start()
-
-document.addEventListener("turbo:frame-missing", (event) => {
-  event.preventDefault()
-  event.detail.visit(event.detail.response)
-})

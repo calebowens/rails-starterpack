@@ -1,5 +1,9 @@
 # README
 
+## Potential problems
+
+There may be issues with @rails/request.js in production
+
 ## Goals
 
 - Be as standard as possible when using gems.
@@ -53,7 +57,8 @@ assumptions about the internals of rails routing.
 - Testing
   - Minitest
   - Capybara
-    - Selenium
+    - [x] Cuprite
+    - ~Selenium~
 - Formatting
   - [x] Standard RB
 - Mail chatching
