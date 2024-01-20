@@ -16,6 +16,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Build
-        run: touch .env && docker compose run --rm web sh .docker/entrypoint.sh
+        run: touch .env && docker compose run --rm web bundle install
       - name: Test
         run: docker compose run --rm web bundle exec rails test:all
