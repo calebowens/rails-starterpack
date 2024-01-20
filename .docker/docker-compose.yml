@@ -28,5 +28,5 @@ services:
       - mailhog
     environment:
       DATABASE_URL: postgresql://postgres:password@db
-    labels:
-      - dev.orbstack.domains=starterpack.local
+    ports:
+      - 3000:3000

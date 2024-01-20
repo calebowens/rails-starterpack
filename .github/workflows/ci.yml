@@ -6,7 +6,7 @@ on:
 
 env:
   COMPOSE_FILE: .docker/docker-compose.yml
-  RAILS_ENV: development
+  RAILS_ENV: test
 
 jobs:
   test:
