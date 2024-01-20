@@ -15,5 +15,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Build
+        run: touch .env && docker compose run --rm web sh .docker/entrypoint.sh
       - name: Test
-        run: touch .env && docker compose run --rm web bundle exec rails test:all
+        run: docker compose run --rm web bundle exec rails test:all
