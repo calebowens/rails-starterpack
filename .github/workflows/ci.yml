@@ -11,7 +11,5 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Build
-        run: echo "COMPOSE_FILE=.docker/docker-compose.yml" > .env && docker compose up -d
       - name: Test
         run: docker compose run --rm web bundle exec rails test:all
