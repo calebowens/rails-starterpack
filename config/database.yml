@@ -80,5 +80,3 @@ test:
 production:
   <<: *default
   database: rails_starterpack_production
-  username: rails_starterpack
-  password: <%= ENV["RAILS_STARTERPACK_DATABASE_PASSWORD"] %>
