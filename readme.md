@@ -52,7 +52,7 @@ assumptions about the internals of rails routing.
   - [x] Set up with docker compose
 - Hosting
   - Stick with Heroku
-  - Do someting fancy with docker compose in production on a VPS
+  - [x] Do someting fancy with docker compose in production on a VPS
   - Look at AWS Fargate https://explore.skillbuilder.aws/learn/course/external/view/elearning/81/introduction-to-aws-fargate
 - Testing
   - Minitest
@@ -73,6 +73,13 @@ assumptions about the internals of rails routing.
   - [x] Solid Cache
 
 ## Style
+
+- [ ] Consider always using "x-ref" rather than sometimes railsy methods converting `x_ref: "foo"` → `x-ref="foo"`
+
+### Routes
+
+Prefer `get <path>, to: <controller>` style of routes as it allows for a more consistent hash style when paired with
+standardrb
 
 ### Function calls
 
@@ -96,27 +103,8 @@ we call it with parans
 
 ## Thoughts and plans
 
-- Decorator
-  - This is something that "is still a hash" but has extra methods tacked on
-- Delegates hash methods that we want to provide
-- Entirly wrapped.
-
-- What might we want to do in the future
-  - IF we are having our params parsed in a custom solution
-    - What might the output format of that look like?
-
-  - IF we've got apipie style validations
-    - We'll want to put the errors in the object so they can be sent back into the form
-    - 
-
----
-
-- [ ] Have a think about how to deal with query params.
-I'd like to deal with this pattern in a sensible way.
-
-Perhaps introducing some sort of apiPie validators (also similar to hanami) that we can define defaults in
-```rb
-email = user_params[:email] || ""
-password = user_params[:password] || ""
-confirm_password = user_params[:confirm_password] || ""
-```
+- [ ] Strong consideration to move to a "pages" namespace for controllers rather than "actions"
+  IE, a login page has a "#view" and "#submit" action on it.
+  Perhaps having both would make sense?
+  - Its worth considering not having the controllers at all.
+- [ ] Add `layout: nil` to ApplicationController render_or_repalce

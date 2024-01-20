@@ -24,3 +24,4 @@ services:
       - db
     environment:
       DATABASE_URL: postgresql://postgres:password@db
+    restart: unless-stopped

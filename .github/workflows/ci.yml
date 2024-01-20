@@ -1,0 +1,17 @@
+name: CI
+
+on:
+  push:
+  workflow_dispatch: # Allows manually triggering (only mantainers can do this)
+
+jobs:
+  test:
+    runs-on: debian-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Build
+        run: echo "COMPOSE_FILE=.docker/docker-compose.yml" > .env && docker compose up -d
+      - name: Test
+        run: docker compose run --rm web bundle exec rails test:all
