@@ -9,7 +9,7 @@ env:
   RAILS_ENV: test
 
 jobs:
-  test:
+  setup:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,5 +19,15 @@ jobs:
         run: touch .env && docker compose run --rm web bundle install
       - name: Create Database
         run: docker compose run --rm web bash -c "RAILS_ENV=test bundle exec rails db:create"
+
+  test:
+    needs: setup
+    steps:
       - name: Test
         run: docker compose run --rm web bundle exec rails test:all
+
+  standardrb:
+    needs: setup
+    steps:
+      - name: Standardrb
+        run: docker compose run --rm web bundle exec standardrb
