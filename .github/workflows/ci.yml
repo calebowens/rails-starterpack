@@ -4,6 +4,10 @@ on:
   push:
   workflow_dispatch: # Allows manually triggering (only mantainers can do this)
 
+env:
+  COMPOSE_FILE: .docker/docker-compose.yml
+  RAILS_ENV: development
+
 jobs:
   test:
     runs-on: ubuntu-latest
