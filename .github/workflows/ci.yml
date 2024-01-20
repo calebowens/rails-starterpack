@@ -18,6 +18,6 @@ jobs:
       - name: Build
         run: touch .env && docker compose run --rm web bundle install
       - name: Create Database
-        run: docker compose run --rm web bundle exec rails db:create
+        run: docker compose run --rm web bash -c "RAILS_ENV=test bundle exec rails db:create"
       - name: Test
         run: docker compose run --rm web bundle exec rails test:all
