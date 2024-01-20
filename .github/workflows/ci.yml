@@ -17,5 +17,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Build
         run: touch .env && docker compose run --rm web bundle install
+      - name: Create Database
+        run: docker compose run --rm web bundle exec rails db:test:prepare
       - name: Test
         run: docker compose run --rm web bundle exec rails test:all
