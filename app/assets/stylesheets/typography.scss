@@ -1,0 +1,49 @@
+td, th {
+  display: table-cell !important;
+  text-align: left;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, p, .p, label, .label, a, button, input, textarea, td, th, .ce-paragraph, select {
+  display: block;
+  font-weight: 400;
+  font-family: 'Libre Franklin', sans-serif;
+  letter-spacing: -0.01125rem;
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-black);
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, th {
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
+}
+
+h1, .h1 {
+  font-size: 50px;
+  margin-bottom: 1.5rem;
+}
+
+h2, .h2 {
+  font-size: 35px;
+  margin-bottom: 1rem;
+}
+
+h3, .h3 {
+  font-size: 25px;
+}
+
+h4, .h4, th {
+  font-size: 20px;
+}
+
+.label, label {
+  font-size: 15;
+  font-family: 'Merriweather', serif;
+
+  margin-bottom: 0;
+}
+
+.monospace {
+  font-family: 'Roboto Mono', monospace;
+}

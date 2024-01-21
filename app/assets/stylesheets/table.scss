@@ -1,0 +1,15 @@
+table {
+  border-collapse: collapse;
+  width: 100%;
+
+  margin-bottom: 1rem;
+
+  th, td {
+    border: 2px solid var(--color-secondary-pressed);
+    padding: 0.5rem 1rem;
+  }
+
+  tr:nth-child(even) {
+    background-color: var(--color-dark-beige);
+  }
+}

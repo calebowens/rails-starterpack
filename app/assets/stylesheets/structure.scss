@@ -1,0 +1,83 @@
+$sizes: (
+  "0": 0,
+  "1": 0.5rem,
+  "2": 1rem,
+  "3": 1.5rem,
+  "4": 2rem,
+  "5": 2.5rem,
+);
+
+@each $name, $size in $sizes {
+  .mb-#{$name} {
+    margin-bottom: $size;
+  }
+
+  .mt-#{$name} {
+    margin-top: $size;
+  }
+
+  .ml-#{$name} {
+    margin-left: $size;
+  }
+
+  .mr-#{$name} {
+    margin-right: $size;
+  }
+}
+
+.fit-content {
+  width: fit-content;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.one-third {
+  width: 33%;
+}
+
+.one-half {
+  width: 50%;
+}
+
+.two-thirds {
+  width: 66%;
+}
+
+.card {
+  background-color: var(--color-dark-beige);
+  padding: 1rem;
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+
+  margin-bottom: 0.5rem;
+}
+
+section {
+  width: 100%;
+  padding: 1rem;
+  display: inline-block;
+
+  float: left;
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.flex {
+  display: flex;
+
+  gap: 1rem;
+
+  &.space-between {
+    justify-content: space-between;
+  }
+
+  &.align-center {
+    align-items: center;
+  }
+}

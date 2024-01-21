@@ -1,0 +1,89 @@
+form {
+  margin-bottom: 1rem;
+
+  &.button_to {
+    margin-bottom: 0;
+  }
+}
+
+a {
+  color: var(--color-primary);
+
+  &:hover {
+    color: var(--color-primary-hover);
+  }
+
+  &:active {
+    color: var(--color-primary-pressed);
+  }
+}
+
+button, .button, input[type=submit] {
+  display: block;
+  background-color: var(--color-primary);
+  color: var(--color-text-white);
+  text-decoration: none;
+
+  width: fit-content;
+
+  padding: 0.5rem 1.5rem;
+
+  border: none;
+
+  &.secondary {
+    background-color: var(--color-secondary);
+  }
+
+  &.danger {
+    background-color: var(--color-danger);
+  }
+
+  &:hover {
+    color: var(--color-text-white);
+    background-color: var(--color-primary-hover);
+
+    &.secondary {
+      background-color: var(--color-secondary-hover);
+    }
+
+    &.danger {
+      background-color: var(--color-danger-hover);
+    }
+  }
+
+  &:active {
+    color: var(--color-text-white);
+    background-color: var(--color-primary-pressed);
+
+    &.secondary {
+      background-color: var(--color-secondary-pressed);
+    }
+
+    &.danger {
+      background-color: var(--color-danger-pressed);
+    }
+  }
+}
+
+textarea, input[type=text], input[type=password], select {
+  border: 2px solid var(--color-secondary);
+  background-color: rgba(255, 255, 255, 0.30);
+  padding: 0.5rem 1rem;
+
+  &:hover {
+    border-color: var(--color-secondary-pressed);
+    outline: none;
+  }
+
+  &:focus {
+    outline: solid 2px var(--color-secondary-pressed);
+
+    &:hover {
+      border-color: var(--color-secondary);
+    }
+  }
+}
+
+input[type=text], input[type=password] {
+  width: 350px;
+}
