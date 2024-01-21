@@ -197,6 +197,11 @@ GEM
     phlex-testing-capybara (0.1.0)
       capybara (~> 3.38)
       phlex (>= 0.5)
+    propshaft (0.8.0)
+      actionpack (>= 7.0.0)
+      activesupport (>= 7.0.0)
+      rack
+      railties (>= 7.0.0)
     psych (5.1.2)
       stringio
     public_suffix (5.0.4)
@@ -287,13 +292,6 @@ GEM
       activejob (>= 7)
       activerecord (>= 7)
       railties (>= 7)
-    sprockets (4.2.1)
-      concurrent-ruby (~> 1.0)
-      rack (>= 2.2.4, < 4)
-    sprockets-rails (3.4.2)
-      actionpack (>= 5.2)
-      activesupport (>= 5.2)
-      sprockets (>= 3.0.0)
     standard (1.33.0)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.0)
@@ -358,11 +356,11 @@ DEPENDENCIES
   pg (~> 1.1)
   phlex-rails
   phlex-testing-capybara
+  propshaft
   puma (>= 5.0)
   rails (~> 7.1.2)
   selenium-webdriver
   solid_cache
-  sprockets-rails
   standard-rails
   standardrb
   stimulus-rails
