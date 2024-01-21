@@ -19,6 +19,8 @@ jobs:
         run: touch .env && docker compose run --rm web bundle install
       - name: Create Database
         run: docker compose run --rm web bash -c "RAILS_ENV=test bundle exec rails db:create"
+      - name: Chmod it all!
+        run: chmod 777 -R production_data
       - name: Save to artifiact
         uses: actions/upload-artifact@v4
         with:
