@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   def render_or_replace_id(page:, target_id:, replacement:)
     respond_to do |format|
       format.html { render page.call }
-      format.turbo_stream { render Replacer.new(target_id, replacement), status: :unprocessable_entity }
+      format.turbo_stream { render Replacer.new(target_id, replacement), status: :unprocessable_entity, layout: nil }
     end
   end
 
