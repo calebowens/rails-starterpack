@@ -1,28 +1,10 @@
 # README
 
-## Potential problems
-
-There may be issues with @rails/request.js in production
-
-## Goals
-
-- Be as standard as possible when using gems.
-- Avoid structuring the database around our features.
-
-Arguably, these are two very contradictory goals. With the way that I'm strucutring my controllers, its counter to how
-most if not all rails projects work.
-
-I think the way that I'm reconsiling this, is that, for eample I'm still using regular rails controllers and using phlex
-in a standard way. Such that, I'm not having ask rails to bend over backwards to find the files.
-
-For example, I'm still able to define rails routes without needing any fancy and breakble helper methods that make
-assumptions about the internals of rails routing.
-
 ## Structure
 
 - app
   - features <- Idea behind this is that we focus more on feature based groupings, rather than categorising code. Part
-    of the idea is that it will make each feature its own isolated application, with some shared common libraries
+    of the idea is that it will make each feature its own isolated application, with some shared common utilities
     - pages
     - authentication
     - dashbaord
@@ -32,49 +14,47 @@ assumptions about the internals of rails routing.
 ## Chosen stack
 
 - View
-  - [x] Phlex
-- Js
-  - Rails powered Importmaps <- we can always move away from the rails side later and maintain the same functionality
-  - [x] AplineJS over stimulus <- Most components can be implemented without
-  - [x] @rails/request.js <- Handles CSRF for us
-  - [x] Turbo <- This was chosen over XHTML as it integrates with rails better. I'm not going to use this heavily or at
-    all really.
-  - [x] JS Routes <- https://github.com/railsware/js-routes
-- CSS
-  - [x] dartcss-rails <- This lets us keep using the default asset pipeline with sass. I like sass. I also want to
-        avoid using comment imports like the plauge
-    - I will need to use @use rather than @import
-  - Implement a subset of tailwind CSS padding and margin classes
+  - [Phlex](https://phlex.fun) templating
+- JS and CSS
+  - Served via [Propshaft](https://github.com/rails/propshaft)
+  - JS
+    - Imports "managed" with [importmaps-rails](https://github.com/rails/importmap-rails)
+    - [AlpineJS](https://alpinejs.dev) over Stimulus
+    - Routing with railsware's [js-routes](https://github.com/railsware/js-routes)
+    - [@rails/request.js](https://github.com/rails/request.js) fetch wrapper
+  - CSS
+    - [dartsass-rails](https://github.com/rails/dartsass-rails) for SCSS
+      - Nesting is becoming available in all the major browsers in pure CSS, so I could be convinced to drop dartsass at
+        some point.
+    - Custom starter styles with a "prefer margin on bottom" approach and custom utility classes.
 - Forms
-  - To use form_with over form_for or simple_form_for. <- I want to move away from the model centric view that
-    simple_form focuses on.
-- Docker
-  - [x] Set up with docker compose
+  - Forms are done with form_with
+  - Subjects of forms should be custom ActiveModel::Model's which handles all validations. The subject of a form should
+    never be a Database model
 - Hosting
-  - Stick with Heroku
-  - [x] Do someting fancy with docker compose in production on a VPS
-  - Look at AWS Fargate https://explore.skillbuilder.aws/learn/course/external/view/elearning/81/introduction-to-aws-fargate
+  - Custom development and production docker compose setup
 - Testing
-  - Minitest
-  - Capybara
-    - [x] Cuprite
-    - ~Selenium~
+  - Minitest with rails's active support extensions [see](https://guides.rubyonrails.org/testing.html)
+  - [Capybara](https://github.com/teamcapybara/capybara) with [Cuprite](https://github.com/rubycdp/cuprite) for system testing
+  - Database records inside tests should be as they would be in the app, without factorybot or fixtures.
 - Formatting
-  - [x] Standard RB
+  - [Standard RB](https://github.com/standardrb/standard) and [Standard Rails](https://github.com/standardrb/standard-rails)
 - Mail chatching
-  - Mailhog
+  - [Mailhog](https://github.com/mailhog/MailHog)
 - Jobs
-  - [x] Good Job <- This means we don't need to have a redis database, and avoids problems with redis loosing all its data
-      when restarting
-- [x] Authentication
-  - has_secure_password
-  - User.authenticated_by(email: 'asdfasdf', password: 'asdfasdf')
+  - Handled via [Good Job](https://github.com/bensheldon/good_job)
+    - May shift over to [Solid Queue](https://github.com/basecamp/solid_queue) depending on how its feature set evolves
+- Authentication
+  - Using a bispoque authentication system based on "has_secure_passsword" which should be simple to build upon with
+    omniauth, or replace with another authentication system.
 - Caching
-  - [x] Solid Cache
+  - [Solid Cache](https://github.com/rails/solid_cache)
 
 ## Style
 
-- [ ] Consider always using "x-ref" rather than sometimes railsy methods converting `x_ref: "foo"` → `x-ref="foo"`
+### AlpineJS in Phlex markup
+
+Prefer `"x-ref": "foo"` over `x_ref: "foo"` or `"x-ref" => "foo"`
 
 ### Routes
 
@@ -103,8 +83,3 @@ we call it with parans
 
 ## Thoughts and plans
 
-- [ ] Strong consideration to move to a "pages" namespace for controllers rather than "actions"
-  IE, a login page has a "#view" and "#submit" action on it.
-  Perhaps having both would make sense?
-  - Its worth considering not having the controllers at all.
-- [ ] Add `layout: nil` to ApplicationController render_or_repalce
