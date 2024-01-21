@@ -14,11 +14,12 @@ Rails.application.routes.draw do
   end
 
   namespace :authentication do
-    scope module: :actions do
+    scope module: :pages do
+      get "/login", to: "login#view"
+      post "/login", to: "login#submit"
+
       get "/register", to: "register#handle"
       post "/register", to: "register_submit#handle"
-      get "/login", to: "login#handle"
-      post "/login", to: "login_submit#handle"
       delete "/logout", to: "logout#handle"
     end
   end
