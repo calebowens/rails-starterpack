@@ -19,12 +19,21 @@ jobs:
         run: touch .env && docker compose run --rm web bundle install
       - name: Create Database
         run: docker compose run --rm web bash -c "RAILS_ENV=test bundle exec rails db:create"
+      - name: Save to artifiact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ci-artifact
+          path: .
 
   test:
     runs-on: ubuntu-latest
 
     needs: setup
     steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ci-artifact
       - name: Test
         run: docker compose run --rm web bundle exec rails test:all
 
@@ -33,5 +42,9 @@ jobs:
 
     needs: setup
     steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ci-artifact
       - name: Standardrb
         run: docker compose run --rm web bundle exec standardrb
