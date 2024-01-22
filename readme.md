@@ -19,6 +19,7 @@
   - Served via [Propshaft](https://github.com/rails/propshaft)
   - JS
     - Imports "managed" with [importmaps-rails](https://github.com/rails/importmap-rails)
+      - Importantly, we're using v1 of importmaps as there are a handful of issues in v2 as it moves to a vendor only approach
     - [AlpineJS](https://alpinejs.dev) over Stimulus
     - Routing with railsware's [js-routes](https://github.com/railsware/js-routes)
     - [@rails/request.js](https://github.com/rails/request.js) fetch wrapper
