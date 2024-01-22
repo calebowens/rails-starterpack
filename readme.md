@@ -78,9 +78,13 @@ When we use the return of the function, IE:
 p make_number("123") + 123
 asdf = make_number("321")
 ```
+we call it with parans
+
+
+## Thoughts and plans
 
 ## Example Controller
-
+```rb
 class Authentication::Pages::LoginController < ApplicationController
   class ViewContext < ActiveSupport::CurrentAttributes
     attribute :form_object
@@ -165,8 +169,6 @@ class Authentication::Pages::LoginController < ApplicationController
     )
   end
 end
-we call it with parans
+```
 
-
-## Thoughts and plans
 
