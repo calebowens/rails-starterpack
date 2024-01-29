@@ -1,3 +1,24 @@
+GIT
+  remote: https://github.com/calebowens/importmap-rails.git
+  revision: ebddf48364c46498df3109de4ab5a0b1e0cff660
+  ref: ebddf48364c46498df3109de4ab5a0b1e0cff660
+  specs:
+    importmap-rails (2.0.1)
+      actionpack (>= 6.0.0)
+      activesupport (>= 6.0.0)
+      railties (>= 6.0.0)
+
+GIT
+  remote: https://github.com/calebowens/propshaft.git
+  revision: fbae0e4f9b389b172fc3d1eec75598d7bd4af894
+  ref: fbae0e4f9b389b172fc3d1eec75598d7bd4af894
+  specs:
+    propshaft (0.8.0)
+      actionpack (>= 7.0.0)
+      activesupport (>= 7.0.0)
+      rack
+      railties (>= 7.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -135,10 +156,6 @@ GEM
     google-protobuf (3.25.2)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
-    importmap-rails (1.2.3)
-      actionpack (>= 6.0.0)
-      activesupport (>= 6.0.0)
-      railties (>= 6.0.0)
     io-console (0.7.2)
     irb (1.11.1)
       rdoc
@@ -182,7 +199,7 @@ GEM
     nokogiri (1.16.0-x86_64-linux)
       racc (~> 1.4)
     parallel (1.24.0)
-    parser (3.3.0.4)
+    parser (3.3.0.5)
       ast (~> 2.4.1)
       racc
     pg (1.5.4)
@@ -197,11 +214,6 @@ GEM
     phlex-testing-capybara (0.1.0)
       capybara (~> 3.38)
       phlex (>= 0.5)
-    propshaft (0.8.0)
-      actionpack (>= 7.0.0)
-      activesupport (>= 7.0.0)
-      rack
-      railties (>= 7.0.0)
     psych (5.1.2)
       stringio
     public_suffix (5.0.4)
@@ -289,7 +301,7 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
-    solid_cache (0.3.0)
+    solid_cache (0.4.1)
       activejob (>= 7)
       activerecord (>= 7)
       railties (>= 7)
@@ -351,13 +363,13 @@ DEPENDENCIES
   dartsass-rails (~> 0.5.0)
   debug
   good_job
-  importmap-rails (~> 1.0)
+  importmap-rails!
   jbuilder
   js-routes
   pg (~> 1.1)
   phlex-rails
   phlex-testing-capybara
-  propshaft
+  propshaft!
   puma (>= 5.0)
   rails (~> 7.1.2)
   selenium-webdriver

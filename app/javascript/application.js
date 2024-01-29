@@ -2,6 +2,12 @@
 import "@hotwired/turbo-rails"
 import Alpine from "alpinejs"
 import * as Routes from "routes"
+import tippy from 'tippy.js'
+import "./othertest.js"
+
+tippy('#tippy', {
+    content: 'My tooltip!'
+});
 
 Alpine.data("notificationController", (initialNotices = []) => ({
     notices: [],

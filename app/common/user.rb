@@ -8,7 +8,7 @@ class User
     @db_user = db_user
   end
 
-  def self.create(email:, password:)
+  def self.create!(email:, password:)
     db_user = DbUser.new(email:, password:)
     if db_user.save
       User.new(db_user:)

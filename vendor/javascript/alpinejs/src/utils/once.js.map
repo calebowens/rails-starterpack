@@ -1,0 +1,3 @@
+// alpinejs@3.13.5/src/utils/once.js.map downloaded from https://ga.jspm.io/npm:alpinejs@3.13.5/src/utils/once.js.map
+
+{"version":3,"file":"once.js","sources":["../../src/utils/once.js"],"sourcesContent":["\nexport function once(callback, fallback = () => {}) {\n    let called = false\n\n    return function () {\n        if (! called) {\n            called = true\n\n            callback.apply(this, arguments)\n        } else {\n            fallback.apply(this, arguments)\n        }\n    }\n}\n"],"names":["once","callback","fallback","called","apply","this","arguments"],"mappings":"AACO,SAASA,KAAKC,EAAUC,EAAW,UACtC,IAAIC,EAAS,MAEb,OAAO,WACH,GAAMA,EAKFD,EAASE,MAAMC,KAAMC,eALX,CACVH,EAAS,KAETF,EAASG,MAAMC,KAAMC,UACjC,CAGK,CACL"}

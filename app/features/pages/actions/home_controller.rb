@@ -4,6 +4,8 @@ class Pages::Actions::HomeController < ApplicationController
       render Components::Header.new
 
       h1 { "Welcome home!" }
+
+      button(id: "tippy") { "tippy button" }
     end
   end
 

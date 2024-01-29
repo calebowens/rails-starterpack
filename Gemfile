@@ -1,12 +1,14 @@
-source "https://rubygems.org"
 
+source "https://rubygems.org"
 ruby "3.3.0"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.2"
 
 # Propshaft!
-gem "propshaft"
+gem "propshaft",
+  github: "calebowens/propshaft",
+  ref: "fbae0e4f9b389b172fc3d1eec75598d7bd4af894"
 
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
@@ -15,7 +17,9 @@ gem "pg", "~> 1.1"
 gem "puma", ">= 5.0"
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
-gem "importmap-rails", "~> 1.0"
+gem "importmap-rails",
+  github: "calebowens/importmap-rails",
+  ref: "ebddf48364c46498df3109de4ab5a0b1e0cff660"
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"

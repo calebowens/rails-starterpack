@@ -13,6 +13,7 @@ class ApplicationLayout < Phlex::HTML
         csrf_meta_tags
         link(rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400&family=Merriweather:wght@400;700&family=Roboto+Mono&display=swap")
         stylesheet_link_tag "application", data_turbo_track: "reload"
+        script { "window.process = { get env() { console.warn(\"Nodeism process.env has been used; You should not rely on nodeisms to being in the browser. If process.env is being used by a 3rd party dependency, consider submitting an issue to the maintainer\"); return \"production\" } }".html_safe }
         javascript_importmap_tags
       end
 

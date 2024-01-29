@@ -1,4 +1,4 @@
-class Authentication::Actions::LogoutController < ApplicationController
+class Authentication::Pages::LogoutController < ApplicationController
   def handle
     Current.user&.remove_from_session(session)
 
