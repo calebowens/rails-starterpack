@@ -1,5 +1,22 @@
 # README
 
+## Development environment setup
+
+### Pre-Commit Hooks
+
+Everyone should have pre-commit hooks setup!
+
+1. Install bun
+
+  ```
+  brew tap oven-sh/bun
+  brew install bun
+  ```
+
+2. Install bun packages `bun install`
+
+3. Voila!
+
 ## Structure
 
 - app
