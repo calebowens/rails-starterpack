@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# Get a list of the staged files
+FILES=$(git diff --cached --name-only --diff-filter=ACMR | sed 's| |\\ |g')
+
+# If the files list is empty exit
+[ -z "$FILES" ] && exit 0
+
+echo "[Pre commit hook] Running standardrb linting"
+
+docker compose run --rm --no-deps -T web standardrb $FILES

@@ -6,14 +6,7 @@
 
 Everyone should have pre-commit hooks setup!
 
-1. Install bun
-
-  ```
-  brew tap oven-sh/bun
-  brew install bun
-  ```
-
-2. Install bun packages `bun install`
+1. Run `./install_git_hooks.sh`
 
 3. Voila!
 

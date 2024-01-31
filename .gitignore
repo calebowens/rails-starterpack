@@ -42,6 +42,3 @@
 /app/javascript/routes.d.ts
 
 /production_data
-
-# Ignore node modules - especially becuase they're development only!
-/node_modules
