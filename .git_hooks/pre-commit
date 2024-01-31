@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# Get a list of the staged files
+STAGED_RUBY_FILES=$(git diff --cached --name-only --diff-filter=ACMR | sed 's| |\\ |g' | grep ".rb")
+
+# If ruby_files string is non-zero
+if [ ! -z $STAGED_RUBY_FILES ]
+then
+  echo "[Pre commit hook] Running standardrb linting"
+
+  # If standardrb returns a non 0 response, exit
+  docker compose run --rm --no-deps -T web standardrb $STAGED_RUBY_FILES || exit 1
+fi

@@ -1,5 +1,15 @@
 # README
 
+## Development environment setup
+
+### Pre-Commit Hooks
+
+Everyone should have pre-commit hooks setup!
+
+1. Run `./install_git_hooks.sh`
+
+3. Voila!
+
 ## Structure
 
 - app
