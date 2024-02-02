@@ -18,12 +18,4 @@ module HasErrors
   def errors_for(attribute)
     Errors.new(messages: errors.full_messages_for(attribute))
   end
-
-  def validations_passed?
-    errors.blank?
-  end
-
-  def validations_failed?
-    errors.any?
-  end
 end

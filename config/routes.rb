@@ -18,8 +18,8 @@ Rails.application.routes.draw do
       get "/login", to: "login#view"
       post "/login", to: "login#submit"
 
-      get "/register", to: "register#handle"
-      post "/register", to: "register_submit#handle"
+      get "/register", to: "register#view"
+      post "/register", to: "register#submit"
       delete "/logout", to: "logout#handle"
     end
   end
