@@ -9,7 +9,7 @@ class Authentication::Pages::RegisterController < ApplicationController
 
     attr_accessor :email, :password, :confirm_password
 
-    validates :email, presence: true, email_format: { message: "formatted incorrectly" }
+    validates :email, presence: true, email_format: {message: "formatted incorrectly"}
     validates :password, presence: true, length: {minimum: 8, maximum: 64}
     validates :confirm_password, presence: true
     validate :ensure_confirm_password_equals_password
