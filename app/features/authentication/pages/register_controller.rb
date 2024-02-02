@@ -9,12 +9,29 @@ class Authentication::Pages::RegisterController < ApplicationController
 
     attr_accessor :email, :password, :confirm_password
 
-    validates :email, presence: true
+    validates :email, presence: true, email_format: { message: "formatted incorrectly" }
     validates :password, presence: true, length: {minimum: 8, maximum: 64}
-    validates :confirm_password, presence: true, comparison: {equal_to: -> { password }}
+    validates :confirm_password, presence: true
+    validate :ensure_confirm_password_equals_password
+
+    validate :ensure_no_user_with_details # Must run last for security
+
+    def ensure_no_user_with_details
+      return unless errors.blank?
+
+      if User.exists_with_email?(email)
+        errors.add :email, :email_used, message: "is already taken"
+      end
+    end
+
+    def ensure_confirm_password_equals_password
+      if confirm_password != password
+        errors.add :confirm_password, :not_password, message: "must match password"
+      end
+    end
   end
 
-  class View
+  class View < ApplicationView
     def template
       h1 { "Create a user" }
 
@@ -22,20 +39,20 @@ class Authentication::Pages::RegisterController < ApplicationController
     end
   end
 
-  class Form
+  class Form < ApplicationView
     def template
-      form_with(url: authentication_register_path, id: "register") do |f|
+      form_with(model: ViewContext.form_object, url: authentication_register_path, id: "register") do |f|
         f.label :email, "Email"
-        f.text_field :email, value: @submission[:email]
-        render @submission.errors_for(:email)
+        f.text_field :email
+        render ViewContext.form_object.errors_for(:email)
 
         f.label :password, "Password"
         f.password_field :password
-        render @submission.errors_for(:password)
+        render ViewContext.form_object.errors_for(:password)
 
         f.label :confirm_password, "Confirm Password"
         f.password_field :confirm_password
-        render @submission.errors_for(:confirm_password)
+        render ViewContext.form_object.errors_for(:confirm_password)
 
         f.submit "Register"
       end
@@ -53,11 +70,8 @@ class Authentication::Pages::RegisterController < ApplicationController
   def submit
     ViewContext.form_object = FormObject.new(user_params)
 
-    if ViewContext.form_object.validations_passed?
-    end
-
-    if ViewContext.form_object.validations_passed?
-      user = User.create!(email: submission[:email], password: submission[:password])
+    if ViewContext.form_object.valid?
+      user = User.create!(email: ViewContext.form_object.password, password: ViewContext.form_object.password)
 
       user.add_to_session session
 
@@ -72,7 +86,7 @@ class Authentication::Pages::RegisterController < ApplicationController
   end
 
   def user_params
-    params.permit(
+    params.require(:authentication_pages_register_controller_form_object).permit(
       :email,
       :password,
       :confirm_password
