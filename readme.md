@@ -1,5 +1,16 @@
 # README
 
+## Production Readyness
+
+There are two goals for this project
+1. To try and build a starting point which I can use to put together a project in a very short amount of time.
+2. To try and answer some of the "what ifs" that I end up thinking about at my day job, but would be wholly
+   inapropriate to implement in a work setting due to their "unrailsy" nature
+
+While this is a project that I'm using in apps that I hope will serve real customers, and I'm putting a reasonable
+effort into mantaining this. Given the fact that there are experiemental code structure choises and dev builds
+importmaps, caution is advised!
+
 ## Development environment setup
 
 ### Pre-Commit Hooks
@@ -60,6 +71,7 @@ Everyone should have pre-commit hooks setup!
     omniauth, or replace with another authentication system.
 - Caching
   - [Solid Cache](https://github.com/rails/solid_cache)
+- N+1 catching via [Bullet](https://github.com/flyerhzm/bullet)
 
 ## Style
 
@@ -110,13 +122,17 @@ class Authentication::Pages::LoginController < ApplicationController
     validates_presence_of :email
     validates_presence_of :password
 
+    validate :ensure_user_exists # Must run last for security
+
     def user
       @user ||= User.from_login_details(email:, password:)
     end
 
     def ensure_user_exists
+      return unless errors.blank?
+
       if user.nil?
-        errors.add :email, :no_user, message: "The email and password provided did not match our records"
+        errors.add :email, :no_user, message: "and password provided did not match our records"
       end
     end
   end
@@ -156,11 +172,7 @@ class Authentication::Pages::LoginController < ApplicationController
   def submit
     ViewContext.form_object = FormObject.new(user_params)
 
-    if ViewContext.form_object.validations_passed?
-      ViewContext.form_object.ensure_user_exists
-    end
-
-    if ViewContext.form_object.validations_passed?
+    if ViewContext.form_object.valid?
       ViewContext.form_object.user.add_to_session(session)
 
       redirect_to dashboard_home_path, status: :see_other
@@ -181,5 +193,3 @@ class Authentication::Pages::LoginController < ApplicationController
   end
 end
 ```
-
-
