@@ -65,4 +65,10 @@ Rails.application.configure do
   config.middleware.use(JsRoutes::Middleware)
 
   config.web_console.permissions = "0.0.0.0/0"
+
+  config.after_initialize do
+    Bullet.enable = true
+    Bullet.alert = true
+    Bullet.rails_logger = true
+  end
 end
