@@ -10,7 +10,7 @@ gem "propshaft",
   ref: "fbae0e4f9b389b172fc3d1eec75598d7bd4af894"
 
 # Use postgresql as the database for Active Record
-gem "pg", "~> 1.1"
+gem "pg", "~> 1.5"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
