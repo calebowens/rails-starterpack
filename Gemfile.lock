@@ -304,7 +304,7 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
-    solid_cache (0.4.2)
+    solid_cache (0.5.3)
       activejob (>= 7)
       activerecord (>= 7)
       railties (>= 7)
